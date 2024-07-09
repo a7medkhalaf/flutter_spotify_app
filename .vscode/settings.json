@@ -1,5 +1,6 @@
 {
     "cSpell.words": [
         "Satoshi"
-    ]
+    ],
+    "cmake.ignoreCMakeListsMissing": true
 }
