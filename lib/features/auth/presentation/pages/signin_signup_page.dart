@@ -5,9 +5,9 @@ import 'package:flutter_spotify_app/common/widgets/basic_app_button.dart';
 import 'package:flutter_spotify_app/core/config/assets/app_images.dart';
 import 'package:flutter_spotify_app/core/config/assets/app_vectors.dart';
 import 'package:flutter_spotify_app/core/config/theme/app_colors.dart';
-import 'package:flutter_spotify_app/presentation/auth/pages/signin_page.dart';
-import 'package:flutter_spotify_app/presentation/auth/pages/signup_page.dart';
-import 'package:flutter_spotify_app/presentation/auth/widgets/sign_in_button.dart';
+import 'package:flutter_spotify_app/features/auth/presentation/pages/signin_page.dart';
+import 'package:flutter_spotify_app/features/auth/presentation/pages/signup_page.dart';
+import 'package:flutter_spotify_app/features/auth/presentation/widgets/sign_in_button.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class SignUpOrSignInPage extends StatelessWidget {

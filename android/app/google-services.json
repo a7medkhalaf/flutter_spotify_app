@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "640344633860",
+    "project_id": "a7medkhalaf-spotify-app",
+    "storage_bucket": "a7medkhalaf-spotify-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:640344633860:android:3bc232c8a567552d97bb51",
+        "android_client_info": {
+          "package_name": "com.example.flutter_spotify_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCu2H5Z8rPphtVMGGNY7ZJVYHCOVxKxqLQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

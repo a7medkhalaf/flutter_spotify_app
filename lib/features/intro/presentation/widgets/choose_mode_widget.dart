@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_spotify_app/core/config/assets/app_vectors.dart';
-import 'package:flutter_spotify_app/presentation/choose_mode/cubit/theme_cubit.dart';
-import 'package:flutter_spotify_app/presentation/choose_mode/widgets/mode_widget.dart';
+import 'package:flutter_spotify_app/features/intro/presentation/cubit/theme_cubit.dart';
+import 'package:flutter_spotify_app/features/intro/presentation/widgets/mode_widget.dart';
 
 class ChooseModeWidget extends StatefulWidget {
   const ChooseModeWidget({super.key});

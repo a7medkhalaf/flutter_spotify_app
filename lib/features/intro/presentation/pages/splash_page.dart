@@ -1,10 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_spotify_app/core/config/assets/app_vectors.dart';
-import 'package:flutter_spotify_app/presentation/intro/pages/get_started.dart';
+import 'package:flutter_spotify_app/features/intro/presentation/pages/get_started.dart';
+import 'package:flutter_spotify_app/features/root/presentation/pages/home_page.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class SplashPage extends StatefulWidget {
-  const SplashPage({super.key});
+  final bool isLoggedIn;
+  const SplashPage({
+    super.key,
+    required this.isLoggedIn,
+  });
 
   @override
   State<SplashPage> createState() => _SplashPageState();
@@ -27,10 +32,11 @@ class _SplashPageState extends State<SplashPage> {
   }
 
   Future<void> redirect() async {
-    await Future.delayed(const Duration(seconds: 2));
-    Navigator.of(context).pushAndRemoveUntil(
-      GetStartedPage.route(),
-      (route) => false,
+    await Future.delayed(const Duration(seconds: 2)).then(
+      (_) => Navigator.of(context).pushAndRemoveUntil(
+        widget.isLoggedIn ? HomePage.route() : GetStartedPage.route(),
+        (route) => false,
+      ),
     );
   }
 }
