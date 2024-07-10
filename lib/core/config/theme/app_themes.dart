@@ -11,6 +11,23 @@ class AppTheme {
         brightness: brightness,
         scaffoldBackgroundColor: scaffoldBackgroundColor,
         fontFamily: 'Satoshi',
+        inputDecorationTheme: InputDecorationTheme(
+          hintStyle: const TextStyle(
+            fontSize: 16,
+            fontWeight: FontWeight.bold,
+          ),
+          contentPadding: const EdgeInsets.all(23),
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(30),
+          ),
+          focusedBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(30),
+            borderSide: const BorderSide(
+              color: AppColors.primary,
+              width: 2,
+            ),
+          ),
+        ),
         elevatedButtonTheme: ElevatedButtonThemeData(
           style: ElevatedButton.styleFrom(
             backgroundColor: AppColors.primary,

@@ -5,6 +5,8 @@ import 'package:flutter_spotify_app/common/widgets/basic_app_button.dart';
 import 'package:flutter_spotify_app/core/config/assets/app_images.dart';
 import 'package:flutter_spotify_app/core/config/assets/app_vectors.dart';
 import 'package:flutter_spotify_app/core/config/theme/app_colors.dart';
+import 'package:flutter_spotify_app/presentation/auth/pages/signin_page.dart';
+import 'package:flutter_spotify_app/presentation/auth/pages/signup_page.dart';
 import 'package:flutter_spotify_app/presentation/auth/widgets/sign_in_button.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -71,7 +73,9 @@ class SignUpOrSignInPage extends StatelessWidget {
                         flex: 5,
                         child: BasicAppButton(
                           text: 'Register',
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.of(context).push(SignUpPage.route());
+                          },
                         ),
                       ),
                       const Spacer(
@@ -80,7 +84,11 @@ class SignUpOrSignInPage extends StatelessWidget {
                       Expanded(
                         flex: 5,
                         child: SingInButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.of(context).push(
+                              SingInPage.route(),
+                            );
+                          },
                         ),
                       ),
                     ],
