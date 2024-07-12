@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_spotify_app/features/auth/data/models/user_model.dart';
 
@@ -47,6 +48,11 @@ class AuthFirebaseServiceImpl implements AuthFirebaseService {
       email: email,
       password: password,
     );
+    FirebaseFirestore.instance.collection('users').add({
+      // 'uid': userCredential.user!.uid,
+      'name': name,
+      'email': email,
+    });
     final user = userCredential.user;
     await user!.updateDisplayName(name);
     return UserModel.fromFirebase(userCredential.user!);

@@ -1,7 +1,8 @@
 {
     "cSpell.words": [
         "Satoshi",
-        "usecases"
+        "usecases",
+        "vsync"
     ],
     "cmake.ignoreCMakeListsMissing": true
 }

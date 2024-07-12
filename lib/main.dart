@@ -6,6 +6,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_spotify_app/common/cubit/user_cubit.dart';
 import 'package:flutter_spotify_app/core/config/theme/app_themes.dart';
 import 'package:flutter_spotify_app/features/auth/presentation/bloc/auth_bloc.dart';
+import 'package:flutter_spotify_app/features/home/presentation/cubit/song_cubit.dart';
 import 'package:flutter_spotify_app/features/intro/presentation/cubit/theme_cubit.dart';
 import 'package:flutter_spotify_app/features/intro/presentation/pages/splash_page.dart';
 import 'package:flutter_spotify_app/firebase_options.dart';
@@ -36,6 +37,7 @@ Future<void> main() async {
           BlocProvider(create: (context) => serviceLocator<ThemeCubit>()),
           BlocProvider(create: (context) => serviceLocator<UserCubit>()),
           BlocProvider(create: (context) => serviceLocator<AuthBloc>()),
+          BlocProvider(create: (context) => serviceLocator<SongCubit>()),
         ],
         child: const MyApp(),
       ),
@@ -70,6 +72,7 @@ class _MyAppState extends State<MyApp> {
           theme: AppTheme.lightTheme,
           darkTheme: AppTheme.darkTheme,
           themeMode: mode,
+          // home: HomePage(),
           home: BlocSelector<UserCubit, UserState, bool>(
             selector: (state) {
               return state is UserLoggedIn;

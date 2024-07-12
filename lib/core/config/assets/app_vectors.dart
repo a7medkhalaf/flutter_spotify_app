@@ -7,4 +7,5 @@ class AppVectors {
   static const moon = '${_basePath}moon$_format';
   static const authTopRight = '${_basePath}auth_top_right$_format';
   static const authBottomRight = '${_basePath}auth_bottom_right$_format';
+  static const homePageCard = '${_basePath}home_card$_format';
 }

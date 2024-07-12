@@ -9,7 +9,7 @@ import 'package:flutter_spotify_app/core/config/theme/app_colors.dart';
 import 'package:flutter_spotify_app/features/auth/presentation/bloc/auth_bloc.dart';
 import 'package:flutter_spotify_app/features/auth/presentation/pages/signup_page.dart';
 import 'package:flutter_spotify_app/features/auth/presentation/widgets/auth_field.dart';
-import 'package:flutter_spotify_app/features/root/presentation/pages/home_page.dart';
+import 'package:flutter_spotify_app/features/home/presentation/pages/home_page.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class SingInPage extends StatefulWidget {
