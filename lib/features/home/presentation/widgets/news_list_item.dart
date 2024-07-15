@@ -30,23 +30,9 @@ class NewsListItem extends StatelessWidget {
                   fit: BoxFit.cover,
                 ),
               ),
-              child: Align(
+              child: const Align(
                 alignment: Alignment.bottomRight,
-                child: Container(
-                  width: 40,
-                  height: 40,
-                  transform: Matrix4.translationValues(10, 10, 0),
-                  decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    color: context.isDarkMode
-                        ? AppColors.dartGray
-                        : AppColors.gray,
-                  ),
-                  child: const Icon(
-                    Icons.play_arrow,
-                    color: AppColors.primary,
-                  ),
-                ),
+                child: PlaySongWidget(),
               ),
             ),
           ),
@@ -67,6 +53,29 @@ class NewsListItem extends StatelessWidget {
             ),
           ),
         ],
+      ),
+    );
+  }
+}
+
+class PlaySongWidget extends StatelessWidget {
+  const PlaySongWidget({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: 40,
+      height: 40,
+      transform: Matrix4.translationValues(10, 10, 0),
+      decoration: BoxDecoration(
+        shape: BoxShape.circle,
+        color: context.isDarkMode ? AppColors.dartGray : AppColors.gray,
+      ),
+      child: Icon(
+        Icons.play_arrow,
+        color: context.isDarkMode ? AppColors.gray : AppColors.dartGray,
       ),
     );
   }

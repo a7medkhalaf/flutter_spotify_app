@@ -10,4 +10,9 @@ class SongRepositoryImpl implements SongRepository {
   Future<List<SongEntity>> getNewsSong() async {
     return await _songFirebaseService.getNewsSong();
   }
+
+  @override
+  Future<List<SongEntity>> getPlaylist() async {
+    return await _songFirebaseService.getPlaylist();
+  }
 }

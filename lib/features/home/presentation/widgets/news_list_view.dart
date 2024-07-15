@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_spotify_app/common/utils/show_snackbar.dart';
 import 'package:flutter_spotify_app/features/home/presentation/cubit/song_cubit.dart';
-import 'package:flutter_spotify_app/features/home/presentation/widgets/news_list_view_item.dart';
+import 'package:flutter_spotify_app/features/home/presentation/widgets/news_list_item.dart';
 
 class NewsWidget extends StatelessWidget {
   const NewsWidget({super.key});

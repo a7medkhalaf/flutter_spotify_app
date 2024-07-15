@@ -10,6 +10,8 @@ import 'package:flutter_spotify_app/features/home/data/repository/song_repositor
 import 'package:flutter_spotify_app/features/home/data/sources/song_firebase.dart';
 import 'package:flutter_spotify_app/features/home/domain/repository/song_repository.dart';
 import 'package:flutter_spotify_app/features/home/domain/usecases/get_news_usecase.dart';
+import 'package:flutter_spotify_app/features/home/domain/usecases/get_playlist_usecase.dart';
+import 'package:flutter_spotify_app/features/home/presentation/cubit/playlist_cubit.dart';
 import 'package:flutter_spotify_app/features/home/presentation/cubit/song_cubit.dart';
 import 'package:flutter_spotify_app/features/intro/presentation/cubit/theme_cubit.dart';
 import 'package:get_it/get_it.dart';
@@ -17,6 +19,7 @@ import 'package:get_it/get_it.dart';
 final serviceLocator = GetIt.instance;
 
 Future<void> initDependencies() async {
+  // Auth
   serviceLocator
     ..registerLazySingleton(
       () => ThemeCubit(),
@@ -48,6 +51,7 @@ Future<void> initDependencies() async {
       ),
     );
 
+  // Home
   serviceLocator
     ..registerLazySingleton<SongFirebaseService>(
       () => SongFirebaseServiceImpl(),
@@ -59,6 +63,16 @@ Future<void> initDependencies() async {
     )
     ..registerLazySingleton(
       () => GetNewsUsecase(
+        serviceLocator(),
+      ),
+    )
+    ..registerLazySingleton(
+      () => GetPlaylistUsecase(
+        serviceLocator(),
+      ),
+    )
+    ..registerLazySingleton(
+      () => PlaylistCubit(
         serviceLocator(),
       ),
     )
