@@ -13,8 +13,10 @@ import 'package:flutter_spotify_app/features/home/domain/usecases/get_news_useca
 import 'package:flutter_spotify_app/features/home/domain/usecases/get_playlist_usecase.dart';
 import 'package:flutter_spotify_app/features/home/presentation/cubit/playlist_cubit.dart';
 import 'package:flutter_spotify_app/features/home/presentation/cubit/song_cubit.dart';
+import 'package:flutter_spotify_app/features/home/presentation/cubit/song_player_cubit.dart';
 import 'package:flutter_spotify_app/features/intro/presentation/cubit/theme_cubit.dart';
 import 'package:get_it/get_it.dart';
+import 'package:just_audio/just_audio.dart';
 
 final serviceLocator = GetIt.instance;
 
@@ -80,5 +82,11 @@ Future<void> initDependencies() async {
       () => SongCubit(
         serviceLocator(),
       ),
+    )
+    ..registerLazySingleton(
+      () => AudioPlayer(),
+    )
+    ..registerLazySingleton(
+      () => SongPlayerCubit(),
     );
 }

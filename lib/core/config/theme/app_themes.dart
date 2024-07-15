@@ -9,6 +9,10 @@ class AppTheme {
       ThemeData(
         primaryColor: AppColors.primary,
         brightness: brightness,
+        colorScheme: ColorScheme.fromSwatch(
+          primarySwatch: Colors.green,
+          brightness: brightness,
+        ),
         scaffoldBackgroundColor: scaffoldBackgroundColor,
         fontFamily: 'Satoshi',
         inputDecorationTheme: InputDecorationTheme(

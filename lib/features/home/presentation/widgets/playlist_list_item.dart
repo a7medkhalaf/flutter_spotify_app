@@ -3,6 +3,7 @@ import 'package:flutter_spotify_app/common/utils/is_dark_mode.dart';
 import 'package:flutter_spotify_app/common/utils/to_camel_case.dart';
 import 'package:flutter_spotify_app/core/config/theme/app_colors.dart';
 import 'package:flutter_spotify_app/features/home/domain/entities/song_entity.dart';
+import 'package:flutter_spotify_app/features/home/presentation/pages/song_player_page.dart';
 
 class PlaylistItem extends StatelessWidget {
   final SongEntity song;
@@ -11,7 +12,9 @@ class PlaylistItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListTile(
-      onTap: () {},
+      onTap: () {
+        Navigator.of(context).push(SongPlayerPage.route(song));
+      },
       contentPadding: const EdgeInsets.all(0.0),
       title: Text(song.title.toCamelCase()),
       subtitle: Text(song.artist.toCamelCase()),

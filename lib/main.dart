@@ -8,6 +8,7 @@ import 'package:flutter_spotify_app/core/config/theme/app_themes.dart';
 import 'package:flutter_spotify_app/features/auth/presentation/bloc/auth_bloc.dart';
 import 'package:flutter_spotify_app/features/home/presentation/cubit/playlist_cubit.dart';
 import 'package:flutter_spotify_app/features/home/presentation/cubit/song_cubit.dart';
+import 'package:flutter_spotify_app/features/home/presentation/cubit/song_player_cubit.dart';
 import 'package:flutter_spotify_app/features/intro/presentation/cubit/theme_cubit.dart';
 import 'package:flutter_spotify_app/features/intro/presentation/pages/splash_page.dart';
 import 'package:flutter_spotify_app/firebase_options.dart';
@@ -40,6 +41,7 @@ Future<void> main() async {
           BlocProvider(create: (context) => serviceLocator<AuthBloc>()),
           BlocProvider(create: (context) => serviceLocator<SongCubit>()),
           BlocProvider(create: (context) => serviceLocator<PlaylistCubit>()),
+          BlocProvider(create: (context) => serviceLocator<SongPlayerCubit>()),
         ],
         child: const MyApp(),
       ),
