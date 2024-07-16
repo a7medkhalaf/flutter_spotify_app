@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_spotify_app/core/constants/app_urls.dart';
 import 'package:flutter_spotify_app/features/home/domain/entities/song_entity.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 
 class SongCover extends StatelessWidget {
   const SongCover({
@@ -18,8 +19,9 @@ class SongCover extends StatelessWidget {
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(30),
         image: DecorationImage(
-          image: NetworkImage(
-              '${AppURLs.coverFireStorage}${song.artist}.jpg${AppURLs.mediaAlt}'),
+          image: CachedNetworkImageProvider(
+            '${AppURLs.coverFireStorage}${song.artist}.jpg${AppURLs.mediaAlt}',
+          ),
           fit: BoxFit.cover,
         ),
       ),

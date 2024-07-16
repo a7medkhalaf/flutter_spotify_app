@@ -3,6 +3,7 @@ import 'package:flutter_spotify_app/common/utils/is_dark_mode.dart';
 import 'package:flutter_spotify_app/common/utils/to_camel_case.dart';
 import 'package:flutter_spotify_app/core/config/theme/app_colors.dart';
 import 'package:flutter_spotify_app/features/home/domain/entities/song_entity.dart';
+import 'package:flutter_spotify_app/features/home/presentation/widgets/favorite_widget.dart';
 
 class SongDetails extends StatelessWidget {
   const SongDetails({
@@ -37,7 +38,7 @@ class SongDetails extends StatelessWidget {
             ),
           ],
         ),
-        const Icon(Icons.favorite_border),
+        const FavoriteWidget(),
       ],
     );
   }

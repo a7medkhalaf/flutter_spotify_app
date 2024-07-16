@@ -4,6 +4,7 @@ import 'package:flutter_spotify_app/common/utils/to_camel_case.dart';
 import 'package:flutter_spotify_app/core/config/theme/app_colors.dart';
 import 'package:flutter_spotify_app/features/home/domain/entities/song_entity.dart';
 import 'package:flutter_spotify_app/features/home/presentation/pages/song_player_page.dart';
+import 'package:flutter_spotify_app/features/home/presentation/widgets/favorite_widget.dart';
 
 class PlaylistItem extends StatelessWidget {
   final SongEntity song;
@@ -15,7 +16,7 @@ class PlaylistItem extends StatelessWidget {
       onTap: () {
         Navigator.of(context).push(SongPlayerPage.route(song));
       },
-      contentPadding: const EdgeInsets.all(0.0),
+      contentPadding: const EdgeInsets.symmetric(horizontal: 8.0),
       title: Text(song.title.toCamelCase()),
       subtitle: Text(song.artist.toCamelCase()),
       leading: Container(
@@ -37,7 +38,7 @@ class PlaylistItem extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Text(song.duration.toStringAsFixed(2)),
-            const Icon(Icons.favorite_border),
+            const FavoriteWidget(),
           ],
         ),
       ),

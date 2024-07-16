@@ -5,6 +5,7 @@ import 'package:flutter_spotify_app/core/config/theme/app_colors.dart';
 import 'package:flutter_spotify_app/core/constants/app_urls.dart';
 import 'package:flutter_spotify_app/features/home/domain/entities/song_entity.dart';
 import 'package:flutter_spotify_app/features/home/presentation/pages/song_player_page.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 
 class NewsListItem extends StatelessWidget {
   final SongEntity song;
@@ -30,8 +31,9 @@ class NewsListItem extends StatelessWidget {
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(30),
                   image: DecorationImage(
-                    image: NetworkImage(
-                        '${AppURLs.coverFireStorage}${song.artist}.jpg${AppURLs.mediaAlt}'),
+                    image: CachedNetworkImageProvider(
+                      '${AppURLs.coverFireStorage}${song.artist}.jpg${AppURLs.mediaAlt}',
+                    ),
                     fit: BoxFit.cover,
                   ),
                 ),
