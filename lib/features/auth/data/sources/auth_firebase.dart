@@ -48,8 +48,10 @@ class AuthFirebaseServiceImpl implements AuthFirebaseService {
       email: email,
       password: password,
     );
-    FirebaseFirestore.instance.collection('users').add({
-      // 'uid': userCredential.user!.uid,
+    FirebaseFirestore.instance
+        .collection('users')
+        .doc(userCredential.user!.uid)
+        .set({
       'name': name,
       'email': email,
     });

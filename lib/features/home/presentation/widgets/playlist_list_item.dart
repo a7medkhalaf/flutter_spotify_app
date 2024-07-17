@@ -37,8 +37,13 @@ class PlaylistItem extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Text(song.duration.toStringAsFixed(2)),
-            const FavoriteWidget(),
+            Text(
+              song.duration.toStringAsFixed(2),
+              style: TextStyle(
+                color: context.isDarkMode ? AppColors.gray : AppColors.dartGray,
+              ),
+            ),
+            FavoriteWidget(song),
           ],
         ),
       ),

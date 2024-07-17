@@ -6,12 +6,11 @@ import 'package:flutter_spotify_app/features/home/domain/entities/song_entity.da
 import 'package:flutter_spotify_app/features/home/presentation/widgets/favorite_widget.dart';
 
 class SongDetails extends StatelessWidget {
+  final SongEntity song;
   const SongDetails({
     super.key,
     required this.song,
   });
-
-  final SongEntity song;
 
   @override
   Widget build(BuildContext context) {
@@ -38,7 +37,7 @@ class SongDetails extends StatelessWidget {
             ),
           ],
         ),
-        const FavoriteWidget(),
+        FavoriteWidget(song),
       ],
     );
   }

@@ -6,6 +6,8 @@ class SongModel extends SongEntity {
     required super.artist,
     required super.duration,
     required super.releaseDate,
+    super.songId,
+    super.isFavorite,
   });
 
   factory SongModel.fromMap(Map<String, dynamic> map) {

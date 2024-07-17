@@ -6,6 +6,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_spotify_app/common/cubit/user_cubit.dart';
 import 'package:flutter_spotify_app/core/config/theme/app_themes.dart';
 import 'package:flutter_spotify_app/features/auth/presentation/bloc/auth_bloc.dart';
+import 'package:flutter_spotify_app/features/home/presentation/cubit/favorite_song_cubit.dart';
 import 'package:flutter_spotify_app/features/home/presentation/cubit/playlist_cubit.dart';
 import 'package:flutter_spotify_app/features/home/presentation/cubit/song_cubit.dart';
 import 'package:flutter_spotify_app/features/home/presentation/cubit/song_player_cubit.dart';
@@ -42,6 +43,8 @@ Future<void> main() async {
           BlocProvider(create: (context) => serviceLocator<SongCubit>()),
           BlocProvider(create: (context) => serviceLocator<PlaylistCubit>()),
           BlocProvider(create: (context) => serviceLocator<SongPlayerCubit>()),
+          BlocProvider(
+              create: (context) => serviceLocator<FavoriteSongCubit>()),
         ],
         child: const MyApp(),
       ),

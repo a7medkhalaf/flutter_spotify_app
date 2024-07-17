@@ -9,8 +9,11 @@ import 'package:flutter_spotify_app/features/auth/presentation/bloc/auth_bloc.da
 import 'package:flutter_spotify_app/features/home/data/repository/song_repository_impl.dart';
 import 'package:flutter_spotify_app/features/home/data/sources/song_firebase.dart';
 import 'package:flutter_spotify_app/features/home/domain/repository/song_repository.dart';
+import 'package:flutter_spotify_app/features/home/domain/usecases/add_or_remove_fav_song_usecase.dart';
 import 'package:flutter_spotify_app/features/home/domain/usecases/get_news_usecase.dart';
 import 'package:flutter_spotify_app/features/home/domain/usecases/get_playlist_usecase.dart';
+import 'package:flutter_spotify_app/features/home/domain/usecases/is_favorite_song_usecase.dart';
+import 'package:flutter_spotify_app/features/home/presentation/cubit/favorite_song_cubit.dart';
 import 'package:flutter_spotify_app/features/home/presentation/cubit/playlist_cubit.dart';
 import 'package:flutter_spotify_app/features/home/presentation/cubit/song_cubit.dart';
 import 'package:flutter_spotify_app/features/home/presentation/cubit/song_player_cubit.dart';
@@ -88,5 +91,20 @@ Future<void> initDependencies() async {
     )
     ..registerLazySingleton(
       () => SongPlayerCubit(),
+    )
+    ..registerLazySingleton(
+      () => AddOrRemoteFavoriteSongUsecase(
+        serviceLocator(),
+      ),
+    )
+    ..registerLazySingleton(
+      () => IsFavoriteSongUseCase(
+        serviceLocator(),
+      ),
+    )
+    ..registerLazySingleton(
+      () => FavoriteSongCubit(
+        serviceLocator(),
+      ),
     );
 }
