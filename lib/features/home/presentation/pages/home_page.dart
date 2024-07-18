@@ -4,6 +4,7 @@ import 'package:flutter_spotify_app/common/widgets/app_bar.dart';
 import 'package:flutter_spotify_app/core/config/assets/app_vectors.dart';
 import 'package:flutter_spotify_app/features/home/presentation/cubit/playlist_cubit.dart';
 import 'package:flutter_spotify_app/features/home/presentation/cubit/song_cubit.dart';
+import 'package:flutter_spotify_app/features/home/presentation/pages/profile_page.dart';
 import 'package:flutter_spotify_app/features/home/presentation/widgets/news_list_view.dart';
 import 'package:flutter_spotify_app/features/home/presentation/widgets/playlist_list_view.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -39,6 +40,14 @@ class _HomePageState extends State<HomePage>
           width: 40,
           height: 40,
         ),
+        actions: [
+          IconButton(
+            onPressed: () {
+              Navigator.of(context).push(ProfilePage.route());
+            },
+            icon: const Icon(Icons.person),
+          )
+        ],
       ),
       body: const Padding(
         padding: EdgeInsets.all(8.0),

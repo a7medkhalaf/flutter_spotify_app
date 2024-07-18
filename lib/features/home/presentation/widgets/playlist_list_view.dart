@@ -5,7 +5,11 @@ import 'package:flutter_spotify_app/features/home/presentation/cubit/playlist_cu
 import 'package:flutter_spotify_app/features/home/presentation/widgets/playlist_list_item.dart';
 
 class PlaylistWidget extends StatelessWidget {
-  const PlaylistWidget({super.key});
+  final bool isFavorites;
+  const PlaylistWidget({
+    super.key,
+    this.isFavorites = false,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -22,14 +26,20 @@ class PlaylistWidget extends StatelessWidget {
           );
         }
         if (state is PlaylistLoaded) {
-          return Expanded(
-            child: ListView.builder(
-              physics: const NeverScrollableScrollPhysics(),
-              itemCount: state.songs.length,
-              itemBuilder: (context, index) {
-                return PlaylistItem(state.songs.elementAt(index));
-              },
-            ),
+          return ListView.builder(
+            physics: const NeverScrollableScrollPhysics(),
+            itemCount: state.songs.length,
+            itemBuilder: (context, index) {
+              final song = state.songs.elementAt(index);
+              if (isFavorites) {
+                if (song.isFavorite ?? false) {
+                  return PlaylistItem(song);
+                } else {
+                  return const SizedBox();
+                }
+              }
+              return PlaylistItem(song);
+            },
           );
         }
         return const SizedBox();

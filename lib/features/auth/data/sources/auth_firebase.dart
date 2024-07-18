@@ -13,6 +13,7 @@ abstract interface class AuthFirebaseService {
     required String email,
     required String password,
   });
+  Future<void> signOut();
 }
 
 class AuthFirebaseServiceImpl implements AuthFirebaseService {
@@ -58,5 +59,10 @@ class AuthFirebaseServiceImpl implements AuthFirebaseService {
     final user = userCredential.user;
     await user!.updateDisplayName(name);
     return UserModel.fromFirebase(userCredential.user!);
+  }
+
+  @override
+  Future<void> signOut() async {
+    await FirebaseAuth.instance.signOut();
   }
 }

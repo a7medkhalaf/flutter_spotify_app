@@ -53,9 +53,9 @@ class NewsListItem extends StatelessWidget {
             ),
             Text(
               song.artist.toCamelCase(),
-              style: const TextStyle(
+              style: TextStyle(
                 fontSize: 16,
-                color: AppColors.gray,
+                color: context.isDarkMode ? AppColors.gray : AppColors.dartGray,
                 fontWeight: FontWeight.w400,
               ),
             ),

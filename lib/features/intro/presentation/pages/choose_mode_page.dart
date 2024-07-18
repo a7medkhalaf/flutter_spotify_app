@@ -23,16 +23,17 @@ class ChooseModePage extends StatelessWidget {
           Container(
             decoration: const BoxDecoration(
               image: DecorationImage(
-                fit: BoxFit.fill,
-                image: AssetImage(AppImages.introBackground2),
+                fit: BoxFit.cover,
+                image: AssetImage(AppImages.introBackground4),
               ),
             ),
           ),
           Container(
             padding: const EdgeInsets.all(32),
-            color: Colors.black.withOpacity(0.15),
+            color: Colors.black.withOpacity(0.45),
             child: Column(
               children: [
+                const SizedBox(height: 30),
                 Align(
                   alignment: Alignment.topCenter,
                   child: SvgPicture.asset(AppVectors.logo),

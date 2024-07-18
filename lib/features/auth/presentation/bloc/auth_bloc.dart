@@ -6,6 +6,7 @@ import 'package:flutter_spotify_app/features/auth/domain/entities/user_entity.da
 import 'package:flutter_spotify_app/features/auth/domain/usecases/get_current_user_usecase.dart';
 import 'package:flutter_spotify_app/features/auth/domain/usecases/signin_usecase.dart';
 import 'package:flutter_spotify_app/features/auth/domain/usecases/signup_usecase.dart';
+import 'package:flutter_spotify_app/features/auth/domain/usecases/singout_usecase.dart';
 
 part 'auth_event.dart';
 part 'auth_state.dart';
@@ -13,18 +14,21 @@ part 'auth_state.dart';
 class AuthBloc extends Bloc<AuthEvent, AuthState> {
   final SignInUsecase _signInUsecase;
   final SignUpUsecase _signUpUsecase;
+  final SignOutUsecase _signOutUsecase;
   final GetCurrentUserUsecase _getCurrentUserUsecase;
   final UserCubit _userCubit;
 
   AuthBloc(
     this._signInUsecase,
     this._signUpUsecase,
+    this._signOutUsecase,
     this._getCurrentUserUsecase,
     this._userCubit,
   ) : super(AuthInitial()) {
     on<AuthEvent>((_, emit) => emit(AuthLoading()));
     on<AuthSignIn>(_onAuthSignIn);
     on<AuthSignUp>(_onAuthSignUp);
+    on<AuthSingOut>(_onSingOut);
     on<AuthGetCurrentUser>(_onGetCurrentUser);
   }
 
@@ -78,5 +82,16 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
       _userCubit.updateUser(user);
       emit(AuthSuccess(user));
     }
+  }
+
+  void _onSingOut(
+    AuthSingOut event,
+    Emitter<AuthState> emit,
+  ) async {
+    final res = await _signOutUsecase.call(NoParams());
+    res.fold(
+      (l) => emit(AuthFailure(l)),
+      (r) => emit(AuthInitial()),
+    );
   }
 }

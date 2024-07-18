@@ -32,4 +32,9 @@ class AuthRepositoryImpl implements AuthRepository {
       password: password,
     );
   }
+
+  @override
+  Future<void> signOut() async {
+    return await _authFirebaseService.signOut();
+  }
 }

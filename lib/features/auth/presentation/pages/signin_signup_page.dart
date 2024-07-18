@@ -35,7 +35,9 @@ class SignUpOrSignInPage extends StatelessWidget {
           ),
           Align(
             alignment: Alignment.bottomLeft,
-            child: Image.asset(AppImages.authBackground),
+            child: Image.asset(
+              AppImages.introBackground5,
+            ),
           ),
           Align(
             alignment: Alignment.center,

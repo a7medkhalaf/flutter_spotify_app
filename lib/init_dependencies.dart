@@ -5,6 +5,7 @@ import 'package:flutter_spotify_app/features/auth/domain/repository/auth_reposit
 import 'package:flutter_spotify_app/features/auth/domain/usecases/get_current_user_usecase.dart';
 import 'package:flutter_spotify_app/features/auth/domain/usecases/signin_usecase.dart';
 import 'package:flutter_spotify_app/features/auth/domain/usecases/signup_usecase.dart';
+import 'package:flutter_spotify_app/features/auth/domain/usecases/singout_usecase.dart';
 import 'package:flutter_spotify_app/features/auth/presentation/bloc/auth_bloc.dart';
 import 'package:flutter_spotify_app/features/home/data/repository/song_repository_impl.dart';
 import 'package:flutter_spotify_app/features/home/data/sources/song_firebase.dart';
@@ -42,6 +43,9 @@ Future<void> initDependencies() async {
       () => SignUpUsecase(serviceLocator()),
     )
     ..registerLazySingleton(
+      () => SignOutUsecase(serviceLocator()),
+    )
+    ..registerLazySingleton(
       () => GetCurrentUserUsecase(serviceLocator()),
     )
     ..registerLazySingleton(
@@ -49,6 +53,7 @@ Future<void> initDependencies() async {
     )
     ..registerLazySingleton(
       () => AuthBloc(
+        serviceLocator(),
         serviceLocator(),
         serviceLocator(),
         serviceLocator(),

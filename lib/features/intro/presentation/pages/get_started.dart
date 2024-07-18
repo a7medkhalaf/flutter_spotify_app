@@ -20,17 +20,18 @@ class GetStartedPage extends StatelessWidget {
     return Scaffold(
       body: Stack(
         children: [
+          const SizedBox(height: 60),
           Container(
             decoration: const BoxDecoration(
               image: DecorationImage(
-                fit: BoxFit.fill,
-                image: AssetImage(AppImages.introBackground1),
+                fit: BoxFit.cover,
+                image: AssetImage(AppImages.introBackground3),
               ),
             ),
           ),
           Container(
             padding: const EdgeInsets.all(32),
-            color: Colors.black.withOpacity(0.15),
+            color: Colors.black.withOpacity(0.55),
             child: Column(
               children: [
                 Align(
@@ -42,7 +43,7 @@ class GetStartedPage extends StatelessWidget {
                 ),
                 const Spacer(),
                 const Text(
-                  'Enjoy listening to music',
+                  'Enjoy listening to whatever',
                   style: TextStyle(
                     fontSize: 25,
                     color: Colors.white,

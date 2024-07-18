@@ -5,6 +5,7 @@ class AppTheme {
   static _theme(
     Brightness brightness,
     Color scaffoldBackgroundColor,
+    Color borderColor,
   ) =>
       ThemeData(
         primaryColor: AppColors.primary,
@@ -23,6 +24,10 @@ class AppTheme {
           contentPadding: const EdgeInsets.all(23),
           border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(30),
+          ),
+          enabledBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(30),
+            borderSide: BorderSide(color: borderColor),
           ),
           focusedBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(30),
@@ -49,10 +54,12 @@ class AppTheme {
   static final lightTheme = _theme(
     Brightness.light,
     AppColors.lightBackground,
+    AppColors.dartGray,
   );
 
   static final darkTheme = _theme(
     Brightness.dark,
     AppColors.darkBackground,
+    AppColors.gray,
   );
 }
